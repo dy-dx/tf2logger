@@ -20,15 +20,21 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
+  app.use('/', express.static(path.join(__dirname, 'public')));
+  app.use('/logs', express.static(path.join(__dirname, 'public/logs')));
+  app.use('/logs', express.directory(path.join(__dirname, 'public/logs')));
 });
 
 app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/', routes.index);
-app.get('/users', user.list);
+// app.get('/', routes.index);
+// app.get('/users', user.list);
+
+app.get('/', function(req, res) {
+  res.redirect('/logs');
+});
 
 // UDP Listen Server
 var logger = require('./logger/logger');

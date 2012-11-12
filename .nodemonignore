@@ -6,4 +6,4 @@
 *.css         # ignore any CSS files too
 /tests/*
 /cfg/secrets.js.example
-
+/tmp/*

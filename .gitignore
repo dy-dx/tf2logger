@@ -2,6 +2,6 @@
 .idea
 .monitor
 node_modules
-tmp/*
 cfg/secrets.js
-
+tmp/*
+public/logs/*.log
