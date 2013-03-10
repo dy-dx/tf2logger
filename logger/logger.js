@@ -23,7 +23,7 @@ module.exports = function() {
     var msg = message.toString('ascii').slice(5,-1);
     var tf2server = rinfo.address + '-' + rinfo.port;
     var logPath = logDir+tf2server+'/';
-    
+
     // Check if this server has a currentFileName.
     //  If it doesn't, read the files in directory, and 
     //  make its currentFileName the last one + 1.
@@ -49,7 +49,7 @@ module.exports = function() {
     });
 
     // If that was the last message in the log, increment filename.
-    if (msg.slice(21,-1) == ': Log file closed') {
+    if (msg.slice(23,-1) == ': Log file closed') {
       currentFileNames[tf2server] += 1;
     }
 
